@@ -1,4 +1,4 @@
-# Drug Pool
+# Drug Pool Created by Group C
 
 GROUP C DRUG POOL 
 THIS CONTAINS THE WEB FILES, MOBILE APP AND MOCK UP

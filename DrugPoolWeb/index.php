@@ -9,6 +9,16 @@
     <link rel="shortcut icon" href="images/icon.jpg"/>
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+          $('#drug-search').keypress(function(e){
+            if(e.keyCode == 13)
+              $('#linkclk').click();
+          });
+        });
+      
+    </script>
 </head>
 <body>
     <!-- NAV SECTION -->
@@ -40,8 +50,8 @@
                 <div style="text-align: center"><a href="drugsinstore.php"><h3>Click to view drugs</h3></a></div>
                 <center><div style ="text-align: center; font-family: arial; width: 50px; height: 30px; -webkit-border-radius:100px; -moz-border-radius:100px; background: green; color:white"><h3>OR</h3></div></center>
                 <h1>Pharm-Drug.ng</h1>
-                  <input type="text" class="form-control"  name="drug-search" placeholder="Search for drug" /></br>
-                  <input type="submit" name="submit" class="btn btn-success btn-sm" value = "Search Directory" ></br>
+                  <input type="text" class="form-control" id="drug-search"  name="drug-search" placeholder="Search for drug" /></br>
+                  <input type="submit" name="submit" class="btn btn-success btn-sm" id= "linkclk" value = "Search Directory" ></br>
                   </form>
                </div>
                <div id="result">
@@ -50,6 +60,7 @@
 if(isset($_GET['submit'])){
 	$search = $_GET['drug-search']; 
 		$j = 0; 
+    if(!empty($search)){
 		$mydata = explode(" ", $search);
 		$query = "SELECT * FROM drug_tbl WHERE ";
 		foreach ($mydata as $key) {
@@ -76,7 +87,10 @@ if(isset($_GET['submit'])){
 		}else{
 			echo "Result not found for \"<b>$search</b>\"";
 		}
-	}
+	}else{
+    echo "You have to enter what to search for";
+  }
+}
 ?>
              </div>
              </div>

@@ -88,7 +88,9 @@ if(isset($_GET['submit'])){
 			echo "Result not found for \"<b>$search</b>\"";
 		}
 	}else{
-    echo "You have to enter what to search for";
+    echo "<script> 
+          alert('The search box cannot be empty')
+          </script>";
   }
 }
 ?>
